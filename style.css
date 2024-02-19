@@ -8,7 +8,7 @@
 
 body {
     background: linear-gradient(0.25turn, #3a4c7a, #0a205a, #040c24);
-    position: relative;
+
 }
 
 nav {
@@ -17,7 +17,6 @@ nav {
     gap: 1.5rem;
     padding: 10px;
     background-color: #343d46;
-    z-index: 1;
 }
 
 li {
@@ -41,13 +40,11 @@ li > a {
 
 #results {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     padding: 20px;
     color: orange;
-    font-size: 80px;
-    position: absolute;
-    left: 1000px;
-    bottom: 600px;
+    font-size: 120px;
+
 }
 
 input {
@@ -89,8 +86,6 @@ gap: 2rem;
 margin: 10px;
 min-height: 800px;
 min-width: 800px;
-position: relative;
-
 }
 
 .planets {
@@ -99,10 +94,19 @@ position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
     font-size: 10px;
     box-shadow: 5px 5px 50px white;
     transition: transform .25s ease-in-out;
+}
+
+.planets:hover {
+    transform: scale(1.1);
+}
+#mercury:hover,
+#venus:hover,
+#earth:hover,
+#mars:hover {
+    transform: scale(2.5);
 }
 
 #sun {
@@ -115,20 +119,6 @@ position: relative;
     transform: translate(-50%, -50%); /* Center it precisely */
     background-color: orange;
 }
-
-
-.planets:hover {
-    transform: scale(1.1);
-}
-#mercury:hover,
-#venus:hover,
-#earth:hover,
-#mars:hover {
-    transform: scale(2.5);
-}
-
-
-
 #earth {
     width: 20px;
     height: 20px;
@@ -188,5 +178,4 @@ footer {
     align-items: center;
     width: 100%;
     height: 50px;
-    z-index: 1;
 }

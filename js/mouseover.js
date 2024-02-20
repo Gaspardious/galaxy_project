@@ -1,10 +1,11 @@
 
-// mouseover.js
+
+/* Hover-effekten med text som visas vid hover över planeterna */
+
 let results = document.getElementById("results");
 let galaxy = document.getElementById("galaxy");
 
 function handleMouseOver(event) {
-    console.log("Mouse over detected");
     if (event.target.classList.contains("planets")) {
         results.innerHTML = event.target.id.toUpperCase();
     }
@@ -12,4 +13,4 @@ function handleMouseOver(event) {
 
 galaxy.addEventListener("mouseover", handleMouseOver);
 
-export { galaxy, results, handleMouseOver };
+export { galaxy, handleMouseOver };

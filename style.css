@@ -57,6 +57,7 @@ li > a {
     padding-right:  20px;
     color: orange;
     font-size: 50px;
+    z-index: 10;
 }
 
 
@@ -86,12 +87,12 @@ li > a {
 
 
 input {
-    min-width: 300px;
+    min-width: 200px;
     height: 30px;
     border-radius: 15px;
     border: none;
-    padding: 5px;
-    background-color: #0B132B;
+    padding: 5px 15px;
+    background-color: blanchedalmond
 }
 
 label {

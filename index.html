@@ -26,15 +26,23 @@
         </header>
 
         <div id="search">
-            <label for="text">SÖK: </label>
-            <input type="text" name="text" id="text" placeholder="vad finns där ute...">
+            <label for="text">🔎</label>
+            <input type="text" name="text" id="search-field" placeholder="vad finns där ute...">
+            <button id="btn"> Sök!</button>
         </div>
 
         <div id="results"></div>
 
 
-        <section id="galaxy">
+
+        <section id="apifetch">
+            <div id="api"></div>
+        </section>
+        
+    <div id="main">
             <div class="planets" id="sun"></div>
+
+        <section id="galaxy">
             <div class="planets" id="merkurius"></div>
             <div class="planets" id="venus"></div>
             <div class="planets" id="jorden"></div>
@@ -45,9 +53,11 @@
             <div class="planets" id="neptunus"></div>
         </section>
 
-        <section id="apifetch">
-            <div id="api"></div>
-        </section>
+    
+
+
+    </div>
+       
 
         <footer>
             <p>Copyright - Dejan Gaspar 2024</p>

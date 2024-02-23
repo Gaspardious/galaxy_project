@@ -8,7 +8,6 @@
 
 body {
     background: linear-gradient(0.25turn, #040c24,#0a205a, #3a4c7a, #0a205a, #040c24);
-
 }
 
 #title {
@@ -49,11 +48,27 @@ li > a {
     padding: 20px;
     color: #0B132B;
     margin-top: 30px;
+    gap: 1rem;
+}
+
+#btn {
+    min-width: 50px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    padding: 5px 15px;
+    background-color: blanchedalmond
+
+}
+#btn:hover {
+    scale: 1.1;
+    transition: transform .25s ease-in-out;
+
 }
 
 #results {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding-right:  20px;
     color: orange;
     font-size: 50px;
@@ -70,13 +85,12 @@ li > a {
     align-items: center;
     margin-bottom: 100px;
 
-
 #api {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    min-height: 300px;
-    max-width: 600px;
+    min-height: 400px;
+    max-width: 900px;
     background-color: rgba(0,0,0,.5);
     color: orange;
     padding: 20px;
@@ -110,16 +124,22 @@ label {
 
 /* PLANETER I BODY */
 
+#main {
+    display: flex;
+    justify-content: space-around
+}
+
 
 #galaxy {
 display: flex;
-flex-direction: column;
+flex-direction: row;
 justify-content: center;
 align-items: center;
 gap: 2rem;
 margin: 10px;
-min-height: 500px;
+max-height: 500px;
 min-width: 400px;
+
 }
 
 .planets {
@@ -147,12 +167,12 @@ min-width: 400px;
 }
 
 #sun {
-    width: 2180px; /* Adjust as needed */
-    height: 2180px; /* Adjust as needed */
-    position: fixed;
+    width: 1180px; /* Adjust as needed */
+    height: 1180px; /* Adjust as needed */
+    position: absolute;
     z-index: -1;
-    top: -103%; /* Position it vertically centered */
-    left: 50%; /* Position it horizontally centered */
+    top: 90%; /* Position it vertically centered */
+    left: -10%; /* Position it horizontally centered */
     transform: translate(-50%, -50%); /* Center it precisely */
     background-color: orange;
 }
@@ -179,8 +199,14 @@ min-width: 400px;
 #jupiter {
     width: 220px;
     height: 220px;
-    background-color: darkcyan;
+    background: linear-gradient(0.25turn, #5C4033, #eb4d04, #8a4b4b, #5C4033, #5C4033);
+    animation: mymove 15s infinite;
 }
+
+@keyframes mymove {
+    50% {transform: rotate(180deg);}
+  }
+
 #saturnus {
     width: 180px;
     height: 180px;
@@ -213,7 +239,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     height: 50px;
     position: fixed;
     left: 0;

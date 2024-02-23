@@ -7,6 +7,8 @@ export { fetchPlanetInfo, planetClickListener };
 document.addEventListener("click", planetClickListener);
 const baseUrl = "https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com";
 
+
+
 function fetchPlanetInfo(planetId) {
     return fetch(`${baseUrl}/bodies`, {
         method: 'GET',
@@ -25,7 +27,7 @@ function fetchPlanetInfo(planetId) {
 
 function planetClickListener(event) {
     // Check if the clicked element has the class "planets"
-    if (event.target.classList.contains("planets")) {
+    if (event.target.className.includes("planets")) {
         // Get the ID of the clicked planet
         const planetId = event.target.id;
         fetchPlanetInfo(planetId)

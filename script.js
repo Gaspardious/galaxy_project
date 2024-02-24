@@ -35,3 +35,5 @@ btn.addEventListener("click", () => {
 
 // Initial display of planet information (for "jorden")
 displayPlanetInfo("jorden");
+
+applyHoverEffect();

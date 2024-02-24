@@ -3,28 +3,45 @@
     margin: 0;
     padding: 0;
     font-family: "Trispace", sans-serif;
+    box-sizing: border-box;
+}
 
+:root {
+    --jupiterColor: linear-gradient(0.25turn, #5C4033, #eb4d04, #8a4b4b, #5C4033, #5C4033);
+    --saturnColor: darkolivegreen;
+    --uranusColor: gray;
+    --neptuneColor: black;
+    --mercuryColor:  lightcoral;
+    --venusColor: darksalmon;
+    --earthColor: green;
+    --marsColor: darkgoldenrod;
+    --mainColor: orange;
+    --mainBGcolor: #0B132B;
+    --mainWhiteColor: blanchedalmond;
 }
 
 body {
     background: linear-gradient(0.25turn, #040c24,#0a205a, #3a4c7a, #0a205a, #040c24);
 }
 
-#title {
+
+
+#title, nav, #search, footer, .planets, #galaxy {
     display: flex;
     justify-content: center;
-    background-color: #0B132B;
-    color: orange;
+    align-items: center;
+}
 
+#title {
+
+    background-color: var(--mainBGcolor);
+    color: var(--mainColor);
 }
 
 nav {
-    display: flex;
-    justify-content: center;
     gap: 1.5rem;
     padding: 10px;
-    background-color: #0B132B;
-    border-bottom: 2px solid #696a6e;
+    background-color: var(--mainBGcolor)
 }
 
 li {
@@ -33,20 +50,14 @@ li {
 
 li > a {
     text-decoration: none;
-    color: orange;
+    color: var(--mainColor);
     font-size: 13px;
     font-weight: 600;
 }
 
-
-
-
-
 #search {
-    display: flex;
-    justify-content: center;
     padding: 20px;
-    color: #0B132B;
+    color: var(--mainBGcolor);
     margin-top: 30px;
     gap: 1rem;
 }
@@ -57,7 +68,7 @@ li > a {
     border-radius: 15px;
     border: none;
     padding: 5px 15px;
-    background-color: blanchedalmond
+    background-color: var(--mainWhiteColor)
 
 }
 #btn:hover {
@@ -70,7 +81,7 @@ li > a {
     display: flex;
     justify-content: flex-end;
     padding-right:  20px;
-    color: orange;
+    color: var(--mainColor);
     font-size: 50px;
     z-index: 10;
 }
@@ -92,13 +103,11 @@ li > a {
     min-height: 400px;
     max-width: 900px;
     background-color: rgba(0,0,0,.5);
-    color: orange;
+    color: var(--mainColor);
     padding: 20px;
     border-radius: 20px;  
 }
 }
-
-
 
 input {
     min-width: 200px;
@@ -106,21 +115,13 @@ input {
     border-radius: 15px;
     border: none;
     padding: 5px 15px;
-    background-color: blanchedalmond
+    background-color: var(--mainWhiteColor)
 }
 
 label {
     margin-top: 10px;
     margin-right: 10px;
 }
-
-
-
-
-
-
-
-
 
 /* PLANETER I BODY */
 
@@ -129,12 +130,7 @@ label {
     justify-content: space-around
 }
 
-
 #galaxy {
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
 gap: 2rem;
 margin: 10px;
 max-height: 500px;
@@ -145,9 +141,6 @@ min-width: 400px;
 .planets {
     background-color: #696a6e;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 10px;
     box-shadow: 5px 5px 50px white;
     transition: transform .25s ease-in-out;
@@ -174,71 +167,56 @@ min-width: 400px;
     top: 90%; /* Position it vertically centered */
     left: -10%; /* Position it horizontally centered */
     transform: translate(-50%, -50%); /* Center it precisely */
-    background-color: orange;
+    background-color: var(--mainColor);
 }
 #jorden {
     width: 20px;
     height: 20px;
-    background-color: green;
+    background-color: var(--earthColor)
 }
 #merkurius {
     width: 6.6px;
     height: 6.6px;
-    background-color: lightcoral;
+    background-color: var(--mercuryColor)
 }
 #venus {
     width: 19px;
     height: 19px;
-    background-color: darksalmon;
+    background-color: var(--venusColor)
 }
 #mars {
     width: 10px;
     height: 10px;
-    background-color: darkgoldenrod;
+    background-color: var(--marsColor)
 }
 #jupiter {
     width: 220px;
     height: 220px;
-    background: linear-gradient(0.25turn, #5C4033, #eb4d04, #8a4b4b, #5C4033, #5C4033);
-    animation: mymove 15s infinite;
+    background: var(--jupiterColor)
 }
-
-@keyframes mymove {
-    50% {transform: rotate(180deg);}
-  }
 
 #saturnus {
     width: 180px;
     height: 180px;
-    background-color: darkolivegreen;
+    background-color: var(--saturnColor)
 }
 #uranus {
     width: 80px;
     height: 80px;
-    background-color: gray;
+    background-color: var(--uranusColor)
 }
 #neptunus {
     width: 79px;
     height: 79px;
-    background-color: lightblue;
+    background-color: var(--neptuneColor);
 }
-
-
-
-
-
-
-
 
 /* FOOTER */
 
 footer {
     background-color: #0B132B;
-    color: orange;
+    color: var(--mainColor);
     font-size: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100vw;
     height: 50px;
     position: fixed;

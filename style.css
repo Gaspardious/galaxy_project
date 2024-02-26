@@ -147,16 +147,16 @@ min-width: 400px;
     cursor: pointer;
 }
 
-/* .planets:hover {
+.planets:hover {
     transform: scale(1.1);
-} */
-/* 
+}
+
 #merkurius:hover,
 #venus:hover,
 #jorden:hover,
 #mars:hover {
     transform: scale(2.5);
-} */
+}
 
 #jorden {
     width: 20px;

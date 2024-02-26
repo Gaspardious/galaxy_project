@@ -206,6 +206,17 @@ min-width: 400px;
     background: var(--neptuneColor);
 }
 
+#sun {
+    width: 1180px; /* Adjust as needed */
+    height: 1180px; /* Adjust as needed */
+    position: absolute;
+    z-index: -1;
+    top: 100%; /* Position it vertically centered */
+    left: -10%; /* Position it horizontally centered */
+    transform: translate(-50%, -50%); /* Center it precisely */
+    background: var(--mainColor);
+}
+
 
 /* FOOTER */
 
@@ -220,52 +231,7 @@ footer {
     bottom: 0;
 }
 
-#sun {
-    width: 1180px; /* Adjust as needed */
-    height: 1180px; /* Adjust as needed */
-    position: absolute;
-    z-index: -1;
-    top: 100%; /* Position it vertically centered */
-    left: -10%; /* Position it horizontally centered */
-    transform: translate(-50%, -50%); /* Center it precisely */
-    background: var(--mainColor);
-}
 
-.ring {
-	position : relative;	
-}
-	
-.ring::before {
-	height: 30px;
-	width: 400px;
-	border : 8px solid #cf6766;
-	border-radius : 100%;	
-	opacity : 1;
-	display : block;
-	position : absolute;
-	top : 120px;
-	left : 5px;
-	content :'';
-	display : block;
-	filter : blur(3px);
-	opacity : 10.8;
-	z-index: -10;
-}
-
-.ring::after {
-	content : '';
-	top: 10px;
-	left : 20px;
-	height: 45px;
-  width: 390px;
-	border-bottom : 5px solid #cf6766;
-	border-radius : 100%;
-	display : block;
-	position : absolute;
-	top : 118px;
-	box-shadow: 0px 5px 8px rgba(207,103,102, 0.5);
-	z-index: 9;
-}
 
 @media screen and (max-width: 1700px) {
     #sun {

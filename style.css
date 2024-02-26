@@ -7,13 +7,13 @@
 }
 
 :root {
-    --jupiterColor: linear-gradient(0.25turn, #5C4033, #eb4d04, #8a4b4b, #5C4033, #5C4033);
-    --saturnColor: darkolivegreen;
-    --uranusColor: gray;
-    --neptuneColor: black;
+    --jupiterColor: radial-gradient(circle at bottom, #5C4033, #eb4d04, #8a4b4b, #5C4033, #5C4033);
+    --saturnColor: radial-gradient(circle at bottom, #9c9c9c 1%, #49bf63 150%);
+    --uranusColor: radial-gradient(circle at bottom, #9c9c9c 1%, #0074e0 150%);
+    --neptuneColor: radial-gradient(circle at bottom, #5d78ff 1%, #00417e 50%);
+    --earthColor: radial-gradient(circle at bottom, #00d30e 1%, #0074e0 50%);
     --mercuryColor:  lightcoral;
     --venusColor: darksalmon;
-    --earthColor: green;
     --marsColor: darkgoldenrod;
     --mainColor: orange;
     --mainBGcolor: #0B132B;
@@ -69,12 +69,11 @@ li > a {
     border: none;
     padding: 5px 15px;
     background-color: var(--mainWhiteColor)
-
 }
+
 #btn:hover {
     scale: 1.1;
     transition: transform .25s ease-in-out;
-
 }
 
 #results {
@@ -100,7 +99,7 @@ li > a {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    min-height: 400px;
+    min-height: 460px;
     max-width: 900px;
     background-color: rgba(0,0,0,.5);
     color: var(--mainColor);
@@ -142,53 +141,47 @@ min-width: 400px;
     background-color: #696a6e;
     border-radius: 50%;
     font-size: 10px;
-    box-shadow: 5px 5px 50px white;
     transition: transform .25s ease-in-out;
-    border: none;
+    border-bottom : 1px solid  rgba(255, 213, 0, 0.8);
+    transform : rotate(-270deg);
     cursor: pointer;
 }
 
-.planets:hover {
+/* .planets:hover {
     transform: scale(1.1);
-}
-
+} */
+/* 
 #merkurius:hover,
 #venus:hover,
 #jorden:hover,
 #mars:hover {
     transform: scale(2.5);
-}
+} */
 
-#sun {
-    width: 1180px; /* Adjust as needed */
-    height: 1180px; /* Adjust as needed */
-    position: absolute;
-    z-index: -1;
-    top: 90%; /* Position it vertically centered */
-    left: -10%; /* Position it horizontally centered */
-    transform: translate(-50%, -50%); /* Center it precisely */
-    background-color: var(--mainColor);
-}
 #jorden {
     width: 20px;
     height: 20px;
-    background-color: var(--earthColor)
+    background: var(--earthColor)
 }
+
 #merkurius {
     width: 6.6px;
     height: 6.6px;
-    background-color: var(--mercuryColor)
+    background: var(--mercuryColor)
 }
+
 #venus {
     width: 19px;
     height: 19px;
     background-color: var(--venusColor)
 }
+
 #mars {
     width: 10px;
     height: 10px;
-    background-color: var(--marsColor)
+    background: var(--marsColor)
 }
+
 #jupiter {
     width: 220px;
     height: 220px;
@@ -198,18 +191,21 @@ min-width: 400px;
 #saturnus {
     width: 180px;
     height: 180px;
-    background-color: var(--saturnColor)
+    background: var(--saturnColor)
 }
+
 #uranus {
     width: 80px;
     height: 80px;
-    background-color: var(--uranusColor)
+    background: var(--uranusColor)
 }
+
 #neptunus {
     width: 79px;
     height: 79px;
-    background-color: var(--neptuneColor);
+    background: var(--neptuneColor);
 }
+
 
 /* FOOTER */
 
@@ -223,3 +219,61 @@ footer {
     left: 0;
     bottom: 0;
 }
+
+#sun {
+    width: 1180px; /* Adjust as needed */
+    height: 1180px; /* Adjust as needed */
+    position: absolute;
+    z-index: -1;
+    top: 100%; /* Position it vertically centered */
+    left: -10%; /* Position it horizontally centered */
+    transform: translate(-50%, -50%); /* Center it precisely */
+    background: var(--mainColor);
+}
+
+.ring {
+	position : relative;	
+}
+	
+.ring::before {
+	height: 30px;
+	width: 400px;
+	border : 8px solid #cf6766;
+	border-radius : 100%;	
+	opacity : 1;
+	display : block;
+	position : absolute;
+	top : 120px;
+	left : 5px;
+	content :'';
+	display : block;
+	filter : blur(3px);
+	opacity : 10.8;
+	z-index: -10;
+}
+
+.ring::after {
+	content : '';
+	top: 10px;
+	left : 20px;
+	height: 45px;
+  width: 390px;
+	border-bottom : 5px solid #cf6766;
+	border-radius : 100%;
+	display : block;
+	position : absolute;
+	top : 118px;
+	box-shadow: 0px 5px 8px rgba(207,103,102, 0.5);
+	z-index: 9;
+}
+
+@media screen and (max-width: 1700px) {
+    #sun {
+        left: -25%; /* Position it horizontally centered */
+    }
+  }
+@media screen and (max-width: 1300px) {
+    #sun {
+        left: -35%; /* Position it horizontally centered */
+    }
+  }

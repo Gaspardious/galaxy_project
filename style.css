@@ -24,8 +24,6 @@ body {
     background: linear-gradient(0.25turn, #040c24,#0a205a, #3a4c7a, #0a205a, #040c24);
 }
 
-
-
 #title, nav, #search, footer, .planets, #galaxy {
     display: flex;
     justify-content: center;
@@ -33,26 +31,8 @@ body {
 }
 
 #title {
-
     background-color: var(--mainBGcolor);
     color: var(--mainColor);
-}
-
-nav {
-    gap: 1.5rem;
-    padding: 10px;
-    background-color: var(--mainBGcolor)
-}
-
-li {
-    list-style-type: none;
-}
-
-li > a {
-    text-decoration: none;
-    color: var(--mainColor);
-    font-size: 13px;
-    font-weight: 600;
 }
 
 #search {
@@ -117,11 +97,6 @@ input {
     background-color: var(--mainWhiteColor)
 }
 
-label {
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
 /* PLANETER I BODY */
 
 #main {
@@ -137,10 +112,7 @@ min-width: 400px;
 }
 
 .planets {
-    background-color: #696a6e;
     border-radius: 50%;
-    font-size: 10px;
-    transition: transform .25s ease-in-out;
     border-bottom : 1px solid  rgba(255, 213, 0, 0.8);
     transform : rotate(-270deg);
     cursor: pointer;
@@ -222,8 +194,6 @@ footer {
     left: 0;
     bottom: 0;
 }
-
-
 
 @media screen and (max-width: 1700px) {
     #sun {

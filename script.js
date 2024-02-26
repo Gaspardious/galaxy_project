@@ -17,3 +17,4 @@ btn.addEventListener("click", () => {
 
 // Initial display of planet information (for "jorden")
 handlePlanetDisplay("jorden", apiElement);
+handleMouseOver("jorden", apiElement);

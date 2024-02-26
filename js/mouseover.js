@@ -5,15 +5,11 @@
 let results = document.getElementById("results");
 let galaxy = document.getElementById("galaxy");
 
-const jupiter = document.getElementById("jupiter");
-const uranus = document.getElementById("uranus");
-const neptune = document.getElementById("neptunus");
-const saturn = document.getElementById("saturnus");
-const mercury = document.getElementById("merkurius");
-const venus = document.getElementById("venus");
-const earth = document.getElementById("jorden");
-const mars = document.getElementById("mars");
+// Visar "JORDEN" by default när sidan öppnas. 
+results.innerHTML = "JORDEN";
 
+
+galaxy.addEventListener("mouseover", handleMouseOver);
 
 function handleMouseOver(event) {
     if (event.target.classList.contains("planets")) {
@@ -21,6 +17,19 @@ function handleMouseOver(event) {
     }
 }
 
-galaxy.addEventListener("mouseover", handleMouseOver);
+
 
 export { galaxy, handleMouseOver };
+
+
+
+
+
+/* const jupiter = document.getElementById("jupiter");
+const uranus = document.getElementById("uranus");
+const neptune = document.getElementById("neptunus");
+const saturn = document.getElementById("saturnus");
+const mercury = document.getElementById("merkurius");
+const venus = document.getElementById("venus");
+const earth = document.getElementById("jorden");
+const mars = document.getElementById("mars"); */

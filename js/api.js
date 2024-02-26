@@ -1,14 +1,11 @@
-
-
 /* API */
 
-export { fetchPlanetInfo, planetClickListener };
+export { fetchPlanetInfo, planetClickListener, handlePlanetDisplay };
 
-document.addEventListener("click", planetClickListener);
+
 const baseUrl = "https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com";
 
-
-
+// Using fetch for planet-API
 function fetchPlanetInfo(planetId) {
     return fetch(`${baseUrl}/bodies`, {
         method: 'GET',
@@ -25,27 +22,45 @@ function fetchPlanetInfo(planetId) {
     });
 }
 
+
+// Function to fetch and display planet information
+function handlePlanetDisplay(planetId, displayElement) {
+    fetchPlanetInfo(planetId)
+        .then((planet) => {
+            let content;
+            if (planet) {
+                content = `
+                    <h2>${planet.name}</h2>
+                    <p><strong>Description</strong>: ${planet.desc}</p>
+                    <p>Distance from the sun: ${planet.distance}</p>
+                    <p>Orbital period: ${planet.orbitalPeriod}</p>
+                    <p>Moons: ${planet.moons.join(", ")}</p>
+                `;
+            } else {
+                content = `${planetId} does not exist! <br><br>
+                The following planets are available in the Milky Way: <br>
+                Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune`;
+            }
+            displayElement.innerHTML = content;
+        })
+        .catch((error) => {
+            console.error('Error fetching planet information:', error);
+            displayElement.innerHTML = 'Error fetching planet information. Please try again.';
+        });
+}
+
+
+document.addEventListener("click", planetClickListener);
+
 function planetClickListener(event) {
     // Check if the clicked element has the class "planets"
     if (event.target.className.includes("planets")) {
         // Get the ID of the clicked planet
         const planetId = event.target.id;
-        fetchPlanetInfo(planetId)
-        .then((planet) => {
-            if (planet) {
-                const planetInfoString = `
-                    <h2>${planet.name}</h2>
-                    <p><strong>Beskrivning</strong>: ${planet.desc}</p>
-                    <p>Avstånd från solen: ${planet.distance}</p>
-                    <p>Orbital period: ${planet.orbitalPeriod}</p>
-                    <p>Månar: ${planet.moons.join(", ")}</p>
-                `;
-                // Display the planet info in the API element
-                document.getElementById("api").innerHTML = planetInfoString;
-            } else {
-                console.log(`${planetId} data not found`);
-            }
-        });
+        // Use handlePlanetDisplay to fetch and display the planet info
+        handlePlanetDisplay(planetId, document.getElementById("api"));
     }
 }
+
+
 

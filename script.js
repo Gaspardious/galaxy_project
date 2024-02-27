@@ -1,11 +1,10 @@
 // script.js
-import { galaxy, handleMouseOver } from '/js/mouseover.js';
+import { handleMouseOver } from '/js/mouseover.js';
 import { handlePlanetDisplay } from '/js/api.js';
 
 
-const textInput = document.querySelector("#search-field");
-const apiElement = document.getElementById("api"); // Assuming this is the element where you display planet information
-const btn = document.getElementById("btn"); // Assuming this is the button element
+const apiElement = document.getElementById("api"); 
+const btn = document.getElementById("btn"); 
 
 
 // The button for triggering the display

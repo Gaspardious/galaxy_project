@@ -5,7 +5,7 @@ export { fetchPlanetInfo, planetClickListener, handlePlanetDisplay };
 
 const baseUrl = "https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com";
 
-// Using fetch for planet-API
+/* Using fetch for planet-API */
 function fetchPlanetInfo(planetId) {
     return fetch(`${baseUrl}/bodies`, {
         method: 'GET',
@@ -23,7 +23,7 @@ function fetchPlanetInfo(planetId) {
 }
 
 
-// Function to fetch and display planet information
+/* Function to fetch and display planet information */
 function handlePlanetDisplay(planetId, displayElement) {
     fetchPlanetInfo(planetId)
         .then((planet) => {
@@ -31,15 +31,15 @@ function handlePlanetDisplay(planetId, displayElement) {
             if (planet) {
                 content = `
                     <h2>${planet.name}</h2>
-                    <p><strong>Description</strong>: ${planet.desc}</p>
-                    <p>Distance from the sun: ${planet.distance}</p>
+                    <p><strong>Beskrivning</strong>: ${planet.desc}</p>
+                    <p>Avstånd från solen: ${planet.distance}</p>
                     <p>Orbital period: ${planet.orbitalPeriod}</p>
-                    <p>Moons: ${planet.moons.join(", ")}</p>
+                    <p>Månar: ${planet.moons.join(", ")}</p>
                 `;
             } else {
-                content = `${planetId} does not exist! <br><br>
-                The following planets are available in the Milky Way: <br>
-                Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune`;
+                content = `${planetId} existerar inte! <br><br>
+                Följande planeter finns på vår galax: <br>
+                Merkurius, Venus, Jorden, Mars, Jupiter, Saturnus, Uranus, Neptunus`;
             }
             displayElement.innerHTML = content;
         })
@@ -49,15 +49,12 @@ function handlePlanetDisplay(planetId, displayElement) {
         });
 }
 
-
+/* Eventlistener and function for clicks on planet, brings up information about the clicked planet */
 document.addEventListener("click", planetClickListener);
 
 function planetClickListener(event) {
-    // Check if the clicked element has the class "planets"
     if (event.target.className.includes("planets")) {
-        // Get the ID of the clicked planet
         const planetId = event.target.id;
-        // Use handlePlanetDisplay to fetch and display the planet info
         handlePlanetDisplay(planetId, document.getElementById("api"));
     }
 }

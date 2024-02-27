@@ -1,14 +1,11 @@
 
+export { handleMouseOver };
 
-/* Hover-effekten med text som visas vid hover över planeterna */
 
-let results = document.getElementById("results");
 let galaxy = document.getElementById("galaxy");
+let results = document.getElementById("results");
 
-// Visar "JORDEN" by default när sidan öppnas. 
-results.innerHTML = "JORDEN";
-
-
+/* Hover-effect that show the name of the planet when hovering over it */
 galaxy.addEventListener("mouseover", handleMouseOver);
 
 function handleMouseOver(event) {
@@ -17,9 +14,11 @@ function handleMouseOver(event) {
     }
 }
 
+// Shows "JORDEN" by default when the website is initially visited. 
+results.innerHTML = "JORDEN";
 
 
-export { galaxy, handleMouseOver };
+
 
 
 

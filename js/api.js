@@ -1,7 +1,11 @@
 
 
-export { fetchPlanetInfo, planetClickListener, handlePlanetDisplay };
+export { handlePlanetDisplay, displayElement };
 
+const displayElement = document.getElementById("api"); // The main div that display all the information about the bodies from API. 
+const btn = document.getElementById("btn"); // The button for search results
+const planets = document.querySelectorAll('.planets'); // Gets all planets
+const searchField = document.querySelector("#search-field");
 const baseUrl = "https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com";
 
 // Function to obtain an API Key
@@ -17,10 +21,10 @@ function fetchApiKey() {
     });
 }
 
-
 // Function to obtain the bodies
-function fetchPlanetInfo(planetId) {
-    return fetchApiKey().then(apiKey => {
+function fetchPlanetInfo(planetId) { // planetID is input field for the search bar
+    return fetchApiKey()
+        .then(apiKey => {
         if (!apiKey) {
             throw new Error('API Key could not be fetched');
         }
@@ -30,7 +34,7 @@ function fetchPlanetInfo(planetId) {
         })
         .then((res) => res.json())
         .then((data) => {
-            const planet = data.bodies.find(body => body.name.toLowerCase() === planetId.toLowerCase());
+            const planet = data.bodies.find(body => body.name.toLowerCase() === planetId.toLowerCase()); // planetID is input field for the search bar
             return planet;
         })
         .catch((error) => {
@@ -41,7 +45,7 @@ function fetchPlanetInfo(planetId) {
 }
 
 /* Function to fetch and display planet information */
-function handlePlanetDisplay(planetId, displayElement) {
+function handlePlanetDisplay(planetId) {
     fetchPlanetInfo(planetId)
         .then((planet) => {
             let content;
@@ -66,15 +70,27 @@ function handlePlanetDisplay(planetId, displayElement) {
         });
 }
 
-/* Eventlistener and function for clicks on planet, brings up information about the clicked planet */
-document.addEventListener("click", planetClickListener);
+/* Eventlistener and function for clicks on planets 🌍, brings up information about the clicked planet */
+planets.forEach(function(planet) {
+    planet.addEventListener('click', function(event) {
+        var planetId = event.target.id;
+        handlePlanetDisplay(planetId);
+    });
+});
 
-function planetClickListener(event) {
-    if (event.target.className.includes("planets")) {
-        const planetId = event.target.id;
-        handlePlanetDisplay(planetId, document.getElementById("api"));
+// The button for the search-field
+btn.addEventListener("click", () => {
+    const planetId = document.querySelector("#search-field").value; // input field for the search-field
+    handlePlanetDisplay(planetId.toLowerCase());
+    searchField.value = "";
+});
+
+    // Check if the key pressed is 'Enter'
+searchField.addEventListener("keydown", function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        const planetId = searchField.value; 
+        handlePlanetDisplay(planetId.toLowerCase());
+        searchField.value = "";
     }
-}
-
-
-
+});

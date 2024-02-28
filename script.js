@@ -1,4 +1,4 @@
-// script.js
+
 import { handleMouseOver } from '/js/mouseover.js';
 import { handlePlanetDisplay, displayElement } from '/js/api.js';
 

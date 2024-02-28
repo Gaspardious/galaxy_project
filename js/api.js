@@ -5,10 +5,10 @@ export { handlePlanetDisplay, displayElement };
 const displayElement = document.getElementById("api"); // The main div that display all the information about the bodies from API. 
 const btn = document.getElementById("btn"); // The button for search results
 const planets = document.querySelectorAll('.planets'); // Gets all planets
-const searchField = document.querySelector("#search-field");
+const searchField = document.querySelector("#search-field"); // Get seach-field
 const baseUrl = "https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com";
 
-// Function to obtain an API Key
+// Function to obtain an API Key using fetch and method POST. 
 function fetchApiKey() {
     return fetch(`${baseUrl}/keys`, {
         method: 'POST',
@@ -21,7 +21,7 @@ function fetchApiKey() {
     });
 }
 
-// Function to obtain the bodies
+// Function to obtain the bodies / planets from API with method GET and using a dynamic API-key
 function fetchPlanetInfo(planetId) { // planetID is input field for the search bar
     return fetchApiKey()
         .then(apiKey => {
@@ -44,7 +44,7 @@ function fetchPlanetInfo(planetId) { // planetID is input field for the search b
     });
 }
 
-/* Function to fetch and display planet information */
+/* Function to display bodies / planet information on the site */
 function handlePlanetDisplay(planetId) {
     fetchPlanetInfo(planetId)
         .then((planet) => {
@@ -70,7 +70,7 @@ function handlePlanetDisplay(planetId) {
         });
 }
 
-/* Eventlistener and function for clicks on planets 🌍, brings up information about the clicked planet */
+/* Eventlistener and function for CLICK ON THE PLANETS 🌍, brings up information about the clicked planet */
 planets.forEach(function(planet) {
     planet.addEventListener('click', function(event) {
         var planetId = event.target.id;
@@ -78,14 +78,14 @@ planets.forEach(function(planet) {
     });
 });
 
-// The button for the search-field
+// The button for the search-field. Enables the user to search for planets. 
 btn.addEventListener("click", () => {
-    const planetId = document.querySelector("#search-field").value; // input field for the search-field
+    const planetId = searchField.value;  
     handlePlanetDisplay(planetId.toLowerCase());
     searchField.value = "";
 });
 
-    // Check if the key pressed is 'Enter'
+    // Check if the pressed key is 'Enter'. Enables the user to search for planets with key "Enter".
 searchField.addEventListener("keydown", function(event) {
     if (event.key === 'Enter') {
         event.preventDefault();

@@ -1,27 +1,44 @@
-/* API */
+
 
 export { fetchPlanetInfo, planetClickListener, handlePlanetDisplay };
 
-
 const baseUrl = "https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com";
 
-/* Using fetch for planet-API */
-function fetchPlanetInfo(planetId) {
-    return fetch(`${baseUrl}/bodies`, {
-        method: 'GET',
-        headers: {'x-zocom': 'solaris-NKsTcw3OPrMQPoSz'}
+// Function to obtain an API Key
+function fetchApiKey() {
+    return fetch(`${baseUrl}/keys`, {
+        method: 'POST',
     })
-    .then((res) => res.json())
-    .then((data) => {
-        const planet = data.bodies.find(body => body.name.toLowerCase() === planetId.toLowerCase());
-        return planet;
-    })
-    .catch((error) => {
-        console.error('Error fetching data:', error);
-        return null;
+    .then(response => response.json())
+    .then(data => data.key)
+    .catch(error => {
+        console.error('Error fetching API key:', error);
+        return null; // Return null if there's an error fetching the API key
     });
 }
 
+
+// Function to obtain the bodies
+function fetchPlanetInfo(planetId) {
+    return fetchApiKey().then(apiKey => {
+        if (!apiKey) {
+            throw new Error('API Key could not be fetched');
+        }
+        return fetch(`${baseUrl}/bodies`, {
+            method: 'GET',
+            headers: {'x-zocom': apiKey}
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            const planet = data.bodies.find(body => body.name.toLowerCase() === planetId.toLowerCase());
+            return planet;
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+            return null;
+        });
+    });
+}
 
 /* Function to fetch and display planet information */
 function handlePlanetDisplay(planetId, displayElement) {

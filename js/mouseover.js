@@ -21,14 +21,3 @@ results.innerHTML = "JORDEN";
 
 
 
-
-
-
-/* const jupiter = document.getElementById("jupiter");
-const uranus = document.getElementById("uranus");
-const neptune = document.getElementById("neptunus");
-const saturn = document.getElementById("saturnus");
-const mercury = document.getElementById("merkurius");
-const venus = document.getElementById("venus");
-const earth = document.getElementById("jorden");
-const mars = document.getElementById("mars"); */

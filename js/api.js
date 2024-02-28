@@ -1,5 +1,4 @@
 
-
 export { handlePlanetDisplay, displayElement };
 
 const displayElement = document.getElementById("api"); // The main div that display all the information about the bodies from API. 
